@@ -14,7 +14,12 @@ public class homePageServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/homePage.jsp").forward(request,response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("isLoggedIn") == "true") {
+            response.sendRedirect("/profile");
+        } else {
+            request.getRequestDispatcher("/WEB-INF/homePage.jsp").forward(request,response);
+        }
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NullPointerException {
@@ -24,6 +29,7 @@ public class homePageServlet extends HttpServlet {
         session.setAttribute("username",username);
 
         if (username.equalsIgnoreCase("admin") && password.equals("password")){
+            session.setAttribute("isLoggedIn","true");
             response.sendRedirect("/profile");
         } else {
             request.getRequestDispatcher("/WEB-INF/homePageLoginError.jsp").forward(request,response);

@@ -13,7 +13,9 @@
     </style>
 </head>
 <body>
-<%--    import navbar here--%>
+    <jsp:include page="../partials/loggedOutNavbar.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
     <div class="jumbotron jumbotron-fluid" id="jumboContainer">
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">Glenn's Pew Pew</h1>

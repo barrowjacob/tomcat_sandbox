@@ -27,6 +27,9 @@
     </style>
 </head>
 <body>
+    <jsp:include page="../partials/loggedInNavbar.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
    <div class="jumbotron jumbotron-fluid">
        <c:forEach var="image" items="${images}">
            <div class="card d-flex align-items-center justify-content-center">
