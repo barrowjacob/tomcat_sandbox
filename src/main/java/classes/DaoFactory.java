@@ -1,4 +1,6 @@
-    public class DaoFactory {
+package classes;
+
+public class DaoFactory {
         private static Images imagesDao;
 
         public static Images getImagesDao() {

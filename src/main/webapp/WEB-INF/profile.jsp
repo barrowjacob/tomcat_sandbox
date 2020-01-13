@@ -7,16 +7,30 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+
 
 <html>
 <head>
     <title><c:out value="${username}"/>'s Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .image {
+            max-width: 95%;
+        }
+        .card {
+            max-width: 20vw;
+            border-radius: 5%;
+            box-shadow: 0 0 10px 5px darkslategray;
+            padding: 1%;
+        }
+    </style>
 </head>
 <body>
    <div class="jumbotron jumbotron-fluid">
-       <c:forEach var="image" items="${sessionScope.images}">
-           <div><img src="${image.url}" alt="broken image">
+       <c:forEach var="image" items="${images}">
+           <div class="card d-flex align-items-center justify-content-center">
+               <img class="image" src="${image.url}" alt="image">
                <h4>${image.title}</h4>
                <p>${image.description}</p>
            </div>
