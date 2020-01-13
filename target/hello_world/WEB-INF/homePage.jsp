@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         .jumbotron-fluid {
-            background-image: url("WEB-INF/img/brown-and-black-wooden-wind-mill-1036148.jpg");
+            background-image: url("img/brown-and-black-wooden-wind-mill-1036148.jpg");
         }
     </style>
 </head>

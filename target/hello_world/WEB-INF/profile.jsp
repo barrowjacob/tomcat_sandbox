@@ -15,13 +15,12 @@
 </head>
 <body>
    <div class="jumbotron jumbotron-fluid">
-        <h1 class="display-4">Hello, <% request.getAttribute("username");%>.</h1>
-        <h4>We've missed you.</h4>
-        <h4>Here's what you've missed this week:</h4>
-        <div><img src="${image.url}">
-             <h4>${image.title}</h4>
-             <p>${image.description}</p>
-        </div>
+       <c:forEach var="image" items="${sessionScope.images}">
+           <div><img src="${image.url}" alt="broken image">
+               <h4>${image.title}</h4>
+               <p>${image.description}</p>
+           </div>
+       </c:forEach>
     </div>
 
 
