@@ -1,0 +1,47 @@
+What is MVC and how have we been implementing it in Java?
+
+model--view--controller. it's a design pattern.
+Model files-beans, controller files-servlets, view files-jsps
+
+What is Apache Tomcat and what role does it play in an application lifecycle?
+
+it's the servlet container that handles the lower
+levels of http requests. request goes to server that spits out response.
+
+What is a servlet and when is it instantiated in an application lifecycle?
+
+java class that handles http requests and responses. created after first request is made.
+
+What are some common uses for request and response objects in a servlet?
+
+response-redirect, getwriter (redirect to new page)
+request-requestDispatcher, getsession, getparameter, setattribute (get new view)
+
+What is a JSP? Why use one instead of an HTML document?
+
+java server pages...it's more dynamic and you can mix java into it.
+
+What are some of the common JSP tags and their uses?
+<% directiveName Directive: set values for entire file
+<%  execute java code
+<%!     define variable
+<%=     evaluate and print expression
+<%--    comment
+
+What is JSTL?
+
+JSP Standard Tag Library.
+dependency needed.
+
+What is the main difference between a request and session object?
+
+request object only lasts for duration of http request, session object lasts until session ends
+
+What are three requirements for a class to be considered a Java Bean?
+
+zero-argument constructor, getters and setters for
+all instance variables, implements serializable and externalizable interface
+
+What is JDBC?
+
+java database connectivity
