@@ -51,12 +51,12 @@ public class MySQLClassDao implements ClassDate{
     @Override
     public Long insert(ClassDates classd) throws SQLException {
         String insertQuery = "INSERT INTO class_dates(type, date, seats_booked) VALUES ('" +  classd.getType() + "','" + classd.getDate() + "','" + classd.getSeats() + "')";
-    Statement stmt = connection.createStatement();
-    stmt.executeUpdate(insertQuery, Statement.RETURN_GENERATED_KEYS);
-    ResultSet rs = stmt.getGeneratedKeys();
-    if (rs.next()) {
-        System.out.println("Inserted a new reconrd! New id: " + rs.getLong(1));
-    }
+        Statement stmt = connection.createStatement();
+        stmt.executeUpdate(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+            System.out.println("Inserted a new recoxrd! New id: " + rs.getLong(1));
+        }
     return rs.getLong(1);
     }
 
