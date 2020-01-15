@@ -1,13 +1,15 @@
 package classes;
 
-public class DaoFactory {
-        private static Images imagesDao;
+import java.sql.SQLException;
 
-        public static Images getImagesDao() {
-            if (imagesDao == null) {
-                imagesDao = new ListImagesDao();
+public class DaoFactory {
+        private static ClassDate classDao;
+
+        public static ClassDate getClassDao() throws SQLException {
+            if (classDao == null) {
+                classDao = new MySQLClassDao();
             }
-            return imagesDao;
+            return classDao;
         }
     }
 

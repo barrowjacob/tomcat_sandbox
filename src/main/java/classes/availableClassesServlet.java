@@ -7,20 +7,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
-@WebServlet("/profile")
-public class profileServlet extends HttpServlet {
+@WebServlet("/classes")
+public class availableClassesServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("isLoggedIn") == "true") {
-            session.setAttribute("images", DaoFactory.getImagesDao().all());
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            try {
+                session.setAttribute("images", DaoFactory.getClassDao().all());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            request.getRequestDispatcher("/WEB-INF/availableClasses.jsp").forward(request, response);
         } else {
             response.sendRedirect("/home");
         }
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/availableClasses.jsp").forward(request,response);
     }
 }
