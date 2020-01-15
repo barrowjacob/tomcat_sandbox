@@ -19,6 +19,8 @@ public class MySQLClassDao implements ClassDate{
             e.printStackTrace();
         }
     }
+
+
 @Override
     public List<ClassDates> all() {
         List<ClassDates> output = new ArrayList<>();
@@ -40,6 +42,12 @@ public class MySQLClassDao implements ClassDate{
         }
         return output;
     }
+    public ResultSet findClassDatesById(long id) throws SQLException {
+        String findQuery = "SELECT * FROM class_dates WHERE id = '" + id + "';";
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(findQuery);
+        return rs;
+    }
     @Override
     public Long insert(ClassDates classd) throws SQLException {
         String insertQuery = "INSERT INTO class_dates(type, date, seats_booked) VALUES ('" +  classd.getType() + "','" + classd.getDate() + "','" + classd.getSeats() + "')";
@@ -56,9 +64,9 @@ public class MySQLClassDao implements ClassDate{
     public static void main(String[] args) throws SQLException {
         ClassDate classDao = new MySQLClassDao();
         ClassDates classDat = new ClassDates(
-                "concealed",
-                "2020-02-1",
-                35
+                "the third",
+                "2020-11-1",
+                1203
         );
         classDao.insert(classDat);
         List<ClassDates> classd = classDao.all();

@@ -23,7 +23,6 @@ public class ClassDates {
     }
 
     public ClassDates() {
-
     }
 
     public long getId() {

@@ -10,9 +10,9 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException { if (request.getSession().getAttribute("isLoggedIn") == "true") {
             request.getSession().removeAttribute("isLoggedIn");
-            response.sendRedirect("/home");
+            response.sendRedirect("/admin");
         } else {
-        response.sendRedirect("/home");
+        response.sendRedirect("/admin");
     }
     }
 }

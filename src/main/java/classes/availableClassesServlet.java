@@ -10,22 +10,23 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-@WebServlet("/classes")
+@WebServlet(name="classes", urlPatterns="/classes")
 public class availableClassesServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("isLoggedIn") == "true") {
             try {
-                session.setAttribute("images", DaoFactory.getClassDao().all());
+                session.setAttribute("classes", DaoFactory.getClassDao().all());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             request.getRequestDispatcher("/WEB-INF/availableClasses.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/home");
+            response.sendRedirect("/admin");
         }
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.getRequestDispatcher("/WEB-INF/availableClasses.jsp").forward(request,response);
     }
 }
